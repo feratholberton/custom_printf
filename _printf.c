@@ -12,7 +12,7 @@ int _printf(const char *format, ...)
 	int char_count = 0;
 	const char *p;
 
-	if (format == NULL || *format == '\0')
+	if (format == NULL)
 		return -1;
 
 	for (p = format; *p != '\0'; p++)
