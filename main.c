@@ -9,9 +9,12 @@
 
 int main(void)
 {
-	printf("Chars in Format String = %d\n", _printf(0));
-	printf("Chars in Format String = %d\n", _printf(""));
-	printf("Chars in Format String = %d\n", _printf("Nill"));
-	printf("%s%s", "Chars in here:   ", "   more text..\n");
+	int chars;
+	_printf(0);
+	_printf("");
+	_printf("Nill\n");
+
+	chars = _printf("Nill\n");
+	printf("Chars in format string: %d\n", chars);
 	return (0);
 }

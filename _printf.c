@@ -17,6 +17,7 @@ int _printf(const char *format, ...)
 
 	for (p = format; *p != '\0'; p++)
 	{
+		write(1, p, 1);
 		char_count++;
 	}
 
