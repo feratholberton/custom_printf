@@ -52,11 +52,13 @@ int main(void)
 	printf("Unsigned:[%u]\n", ui);
 	printf("\n");
 
-	_printf("Unsigned octal:[%o]\n", ui);
-	printf("Unsigned octal:[%o]\n", ui);
-
 	_printf("Unsigned hexadecimal:[%x, %X]\n", ui, ui);
 	printf("Unsigned hexadecimal:[%x, %X]\n", ui, ui);
+	printf("\n");
+
+	_printf("Unsigned octal:[%o]\n", ui);
+	printf("Unsigned octal:[%o]\n", ui);
+	printf("\n");
 
 	_printf("Address:[%p]\n", addr);
 	printf("Address:[%p]\n", addr);

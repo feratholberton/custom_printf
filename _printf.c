@@ -57,6 +57,24 @@ int _printf(const char *format, ...)
 				handle_unsigned(args, &char_count);
 			}
 
+			/* Check for x symbol | Lower hexa*/
+			else if (*p == 'x')
+			{
+				handle_hex(args, &char_count, 0);
+			}
+
+			/* Check for X symbol | Upper hexa */
+			else if (*p == 'X')
+			{
+				handle_hex(args, &char_count, 1);
+			}
+
+			/* Check for o symbol | Octal */
+			else if (*p == 'o')
+			{
+				handle_octal(args, &char_count);
+			}
+
 			/* Check for unknow specifier */
 			else
 			{

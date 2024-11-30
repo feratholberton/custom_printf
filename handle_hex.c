@@ -1,11 +1,12 @@
 #include "main.h"
 
-void handle_unsigned(va_list args, int *char_count)
+void handle_hex(va_list args, int *char_count, int uppercase)
 {
 	unsigned int num = va_arg(args, unsigned int);
 	char buffer[12];
 	char *p;
-	unsigned_to_string(num, buffer);
+
+	to_base_string(num, buffer, 16, uppercase);
 
 	for (p = buffer; *p != '\0'; p++)
 	{
