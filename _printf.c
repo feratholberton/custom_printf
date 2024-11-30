@@ -7,8 +7,6 @@
  * Return: Number of characters printed, or -1 on error
  */
 
-void handle_string(va_list, int *);
-
 int _printf(const char *format, ...)
 {
 	int char_count = 0;
@@ -45,6 +43,18 @@ int _printf(const char *format, ...)
 			else if (*p == 's')
 			{
 				handle_string(args, &char_count);
+			}
+
+			/* Check for d or i symbol | Integer identifier */
+			else if (*p == 'd' || *p == 'i')
+			{
+				handle_integer(args, &char_count);
+			}
+
+			/* Check for u symbol | Unsigned Integer identifier */
+			else if (*p == 'u')
+			{
+				handle_unsigned(args, &char_count);
 			}
 
 			/* Check for unknow specifier */

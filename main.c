@@ -1,5 +1,3 @@
-#include <stdio.h>
-#include <limits.h>
 #include "main.h"
 
 /**
@@ -40,12 +38,19 @@ int main(void)
 
 	_printf("Length:[%d, %i]\n", len, len);
 	printf("Length:[%d, %i]\n", len2, len2);
+	printf("\n");
 
 	_printf("Negative:[%d]\n", -762534);
 	printf("Negative:[%d]\n", -762534);
+	printf("\n");
+
+	_printf("Len:[%d]\n", len);
+	printf("Len:[%d]\n", len2);
+	printf("\n");
 
 	_printf("Unsigned:[%u]\n", ui);
 	printf("Unsigned:[%u]\n", ui);
+	printf("\n");
 
 	_printf("Unsigned octal:[%o]\n", ui);
 	printf("Unsigned octal:[%o]\n", ui);
@@ -55,9 +60,6 @@ int main(void)
 
 	_printf("Address:[%p]\n", addr);
 	printf("Address:[%p]\n", addr);
-
-	_printf("Len:[%d]\n", len);
-	printf("Len:[%d]\n", len2);
 
 	return (0);
 }
