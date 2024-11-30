@@ -7,8 +7,7 @@
  * Return: Number of characters printed, or -1 on error
  */
 
-void handle_percent(int *);
-void handle_char(va_list, int *);
+void handle_string(va_list, int *);
 
 int _printf(const char *format, ...)
 {
@@ -24,39 +23,31 @@ int _printf(const char *format, ...)
 	/* Start iteration over format string until it finds the null terminator*/
 	for (p = format; *p != '\0'; p++)
 	{
-		/* Checks for % sing | a.k.a. specifier */
+		/* Check for % symbol | a.k.a. specifier */
 		if (*p == '%')
 		{
 			/* Move pointer to next position */
 			p++;
 
-			/* Handle literal % sing */
+			/* Check for % symbol */
 			if (*p == '%')
 			{
 				handle_percent(&char_count);
 			}
 
-			/* Handle c indentifier */
+			/* Check for c symbol | Character identifier */
 			else if (*p == 'c')
 			{
 				handle_char(args, &char_count);
 			}
 
-			/* Handle s identifier */
+			/* Check for s symbol | String identifier */
 			else if (*p == 's')
 			{
-				char *str = va_arg(args, char *);
-				if (str == NULL)
-					str = "(null)";
-
-				for (; *str != '\0'; str++)
-				{
-					write(1, str, 1);
-					char_count++;
-				}
+				handle_string(args, &char_count);
 			}
 
-			/* Handle unknow specifier */
+			/* Check for unknow specifier */
 			else
 			{
 				write(1, "%", 1);
@@ -73,17 +64,4 @@ int _printf(const char *format, ...)
 
 	va_end(args);
 	return char_count;
-}
-
-void handle_percent(int *char_count)
-{
-	write(1, "%", 1);
-	(*char_count)++;
-}
-
-void handle_char(va_list args, int *char_count)
-{
-	char c = va_arg(args, int);
-	write(1, &c, 1);
-	(*char_count)++;
 }
